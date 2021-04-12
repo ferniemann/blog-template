@@ -10,6 +10,7 @@ app.use(express.static('public'));
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+    console.log(articles[45])
     res.render('pages/index', { articles: articles });
 });
 
@@ -18,7 +19,7 @@ app.listen(port, () => {
 });
 
 app.get('/article/:id', (req, res) => {
-    res.render('pages/article', { id: Number(req.params.id), title: req.params.title, article: articles[req.params.id] })
+    res.render('pages/article', { article: articles[req.params.id] })
 });
 
 
